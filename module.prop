@@ -1,0 +1,6 @@
+id=clarifae
+name=Clarifae
+version=v1.0-Initial
+versionCode=10000
+author=kiran-embedded (Original: Profazia)
+description=Real-time AI microphone clarity (RNNoise). Special build with Redmi Note 10 Echo Fix + Live UI Logs.

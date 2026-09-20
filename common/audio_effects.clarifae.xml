@@ -1,0 +1,37 @@
+<!--
+  audio_effects.clarifae.xml — REFERENCE fragments.
+
+  customize.sh injects the lines below into the device's existing
+  audio_effects.xml (under /vendor/etc, /odm/etc or /system/etc) via an
+  idempotent overlay. This file documents exactly what gets added, so you can
+  apply it by hand if auto-patching fails on your device
+  (see docs/TROUBLESHOOTING.md).
+-->
+
+<!-- 1) inside <libraries> ... </libraries> -->
+<library name="clarifae" path="libclarifae.so"/>
+
+<!-- 2) inside <effects> ... </effects> — both directions, one library -->
+<effect name="clarifae_ns"  library="clarifae" uuid="c1a71fae-0001-4a5e-9b10-43578768aaf3"/>  <!-- input  (capture pre-proc)  -->
+<effect name="clarifae_out" library="clarifae" uuid="c1a71fae-0002-4a5e-9b10-43578768aaf3"/>  <!-- output (playback post-proc) -->
+
+<!-- 3) INPUT: inside <preprocess> ... </preprocess> — one <stream> per capture
+        source you want cleaned (mapped from persist.clarifae.targets):
+        mic, voice_communication, camcorder, voice_recognition -->
+<stream type="voice_communication">
+    <apply effect="clarifae_ns"/>
+</stream>
+<stream type="mic">
+    <apply effect="clarifae_ns"/>
+</stream>
+
+<!-- 4) OUTPUT: inside <postprocess> ... </postprocess> — one <stream> per playback
+        stream you want cleaned (mapped from persist.clarifae.out_targets):
+        music, voice_call, ring, alarm, notification, system.
+        NOTE: these are speech models — applying to "music" will degrade actual music. -->
+<stream type="music">
+    <apply effect="clarifae_out"/>
+</stream>
+<stream type="voice_call">
+    <apply effect="clarifae_out"/>
+</stream>

@@ -1,0 +1,3 @@
+Primary: #435787
+Secondary: #68aaf3
+Font: Creative Caps

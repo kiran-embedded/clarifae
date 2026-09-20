@@ -1,0 +1,25 @@
+# --- build outputs ---
+build/
+dist/
+*.o
+*.a
+
+# Built native libraries (produced by ./build.sh; shipped via the GitHub release)
+lib/
+system/lib/soundfx/*.so
+system/lib64/soundfx/*.so
+
+# --- fetched dependency: RNNoise source + trained weights ---
+# Restore with: ./scripts/fetch_deps.sh
+native/third_party/
+
+# Local RNNoise release tarball (build input; see INSTALL.md)
+rnnoise-*.tar.gz
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/

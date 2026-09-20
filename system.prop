@@ -1,0 +1,19 @@
+# system.prop — Clarifae defaults (resetprop-style, applied at boot by Magisk).
+#
+# NOTE: /data/adb/clarifae/config.conf is the authoritative configuration. These
+# persist.clarifae.* values are only seeded so the effect has sane settings on
+# the very first boot before service.sh runs `clarifae-ctl apply`. The WebUI and
+# clarifae-ctl always write config.conf and re-sync these props.
+persist.clarifae.enabled=1
+persist.clarifae.in_enabled=1
+persist.clarifae.out_enabled=1
+persist.clarifae.mode=1
+persist.clarifae.strength=70
+persist.clarifae.out_strength=60
+persist.clarifae.atten_db=24
+persist.clarifae.vad=50
+persist.clarifae.targets=mic,voice_comm
+persist.clarifae.out_targets=music,voice_call
+persist.clarifae.highpass=1
+persist.clarifae.autogain=0
+persist.clarifae.loglevel=1

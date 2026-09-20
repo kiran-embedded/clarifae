@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Clarifae">
+  <defs>
+    <linearGradient id="clf" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#68aaf3"/>
+      <stop offset="1" stop-color="#435787"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#clf)"/>
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="3.4">
+    <!-- center source -->
+    <line x1="20" y1="26" x2="20" y2="38"/>
+    <!-- rising clarity bars -->
+    <line x1="28" y1="20" x2="28" y2="44"/>
+    <line x1="36" y1="14" x2="36" y2="50"/>
+    <!-- emanating clarity arcs -->
+    <path d="M44 22 a13 13 0 0 1 0 20" opacity="0.95"/>
+    <path d="M49 17 a20 20 0 0 1 0 30" opacity="0.6"/>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+# sepolicy.rule — defensive SELinux allowances for Clarifae.
+#
+# Most devices already permit audioserver to read system properties and load
+# effect libraries from the soundfx dirs, so these are belt-and-suspenders.
+# persist.clarifae.* live under the default_prop context (we do not add a custom
+# property_context from a module), and audioserver reads them to configure the
+# effect live.
+
+# Let audioserver read the persist.clarifae.* properties (default_prop context).
+allow audioserver default_prop file { read getattr open map }
+
+# Let audioserver load/execute our pre-processing effect from the soundfx dirs.
+allow audioserver system_lib_file file { read getattr open execute map }
+allow audioserver vendor_file file { read getattr open execute map }

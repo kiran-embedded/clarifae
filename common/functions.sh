@@ -96,9 +96,11 @@ mode_name() {
 # ---- audio_effects.xml / .conf integration ----
 
 find_audio_effects_file() {
-  for _f in /vendor/etc/audio_effects.xml /odm/etc/audio_effects.xml \
-            /system/etc/audio_effects.xml /vendor/etc/audio_effects.conf \
-            /system/etc/audio_effects.conf; do
+  for _f in /vendor/etc/audio/audio_effects.xml /odm/etc/audio/audio_effects.xml \
+            /vendor/etc/audio_effects.xml /odm/etc/audio_effects.xml \
+            /system/etc/audio_effects.xml \
+            /vendor/etc/audio/audio_effects.conf /odm/etc/audio/audio_effects.conf \
+            /vendor/etc/audio_effects.conf /system/etc/audio_effects.conf; do
     [ -f "$_f" ] && { echo "$_f"; return 0; }
   done
   return 1
